@@ -6,6 +6,14 @@ class Percorso {
         generaPercorso(largezza, altezza);
     }
 
+    public int getInizio(){
+        return 0;
+    }
+
+    public int getFine(){
+        return punti.size() - 1;
+    }
+
     void generaPercorso(int largezza, int altezza){
         int y = int(random(0, altezza));
 

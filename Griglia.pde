@@ -25,7 +25,11 @@ class Griglia {
                 }else if(celle[x][y] == 1){
                     fill(200, 200, 0); // Giallo per il percorso
                 }else if(celle[x][y] == 2){
-                    fill(0, 200, 0); // Verde per le torri
+                    fill(0, 0, 255); // Blu per le torri
+                }else if(celle[x][y] == 3){
+                    fill(0, 255, 0); // Verde per il pundo di inizio
+                }else if(celle[x][y] == 4){
+                    fill(255, 0, 0); // Rosso per il pundo di fine
                 }
 
                 // Disegna il contorno della cella
@@ -51,9 +55,16 @@ class Griglia {
     }
 
     void disegnaPercorso(Percorso percorso){
-        for (Punto p : percorso.punti) {
-            if (p.x >= 0 && p.x < larghezza && p.y >= 0 && p.y < altezza){
-                celle[p.x][p.y] = 1; // Disegna il percorso (1)
+        for(int i = 0; i < percorso.punti.size(); i++){
+            Punto p = percorso.punti.get(i);
+            if(p.x >= 0 && p.x < larghezza && p.y >= 0 && p.y < altezza){ // Se il punto è nello schermo
+                if(i == percorso.getInizio()){
+                    celle[p.getX()][p.getY()] = 3; // Punto iniziale (3)
+                }else if(i == percorso.getFine()){
+                    celle[p.getX()][p.getY()] = 4; // Punto finale (4)
+                }else{
+                    celle[p.x][p.y] = 1; // Disegna il percorso (1)
+                }
             }
         }
     }
