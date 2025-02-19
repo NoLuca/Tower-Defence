@@ -1,34 +1,34 @@
 class Punto {
     int x, y;
 
-    public Punto(int x, int y) {
+    public Punto(int x, int y){
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public int getX(){
         return this.x;
     }
 
-    public int getY() {
+    public int getY(){
         return this.y;
     }
 
-    public void setX(int x) {
+    public void setX(int x){
         this.x = x;
     }
     
-    public void setY(int y) {
+    public void setY(int y){
         this.y = y;
     }
 
     // Metodo per confrontare due punti
-    boolean equals(Punto altro) {
+    boolean equals(Punto altro){
         return getX() == altro.getX() && getY() == altro.getY();
     }
 
     // Rappresentazione del punto come stringa
-    String toString() {
-        return "(" + x + ", " + y + ")";
+    String toString(){
+        return "(" + getX() + ", " + getY() + ")";
     }
 }
