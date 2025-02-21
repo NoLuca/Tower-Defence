@@ -2,17 +2,20 @@ Griglia griglia;
 Percorso percorso;
 int cellSize = 40; // Dimensione delle celle
 int larghezza = 20, altezza = 20; // Dimensioni della griglia
+NemicoVeloce nemico;
 
 void setup() {
   size(800, 800);
   griglia = new Griglia(larghezza, altezza, cellSize);
   percorso = new Percorso(larghezza, altezza);
   griglia.disegnaPercorso(percorso);
+  nemico = new NemicoVeloce(10, 10, 10);
 }
 
-void draw() {
+void draw(){
   background(220);
   griglia.disegnaGriglia();
+  nemico.draw();
 }
 
 void mousePressed(){

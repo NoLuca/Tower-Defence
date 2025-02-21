@@ -3,6 +3,9 @@ class NemicoVeloce extends Nemico{
         super(vita, danno, velocita);
     }
 
-    public void disegna(){
+    public void draw(){
+        fill(155, 0, 0);
+        stroke(0);
+        rect(x * 40 + 10, y * 40 + 10, 20, 20);
     }
 }
