@@ -16,7 +16,7 @@ class Griglia {
         }
     }
 
-    public void disegnaGriglia(){
+    public void draw(){
         for(int x = 0; x < larghezza; x++){
             for(int y = 0; y < altezza; y++){
                 // Colore di riempimento in base al tipo di cella

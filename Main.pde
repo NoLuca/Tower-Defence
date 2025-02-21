@@ -9,12 +9,12 @@ void setup() {
   griglia = new Griglia(larghezza, altezza, cellSize);
   percorso = new Percorso(larghezza, altezza);
   griglia.disegnaPercorso(percorso);
-  nemico = new NemicoVeloce(10, 10, 10);
+  nemico = new NemicoVeloce(10, 10, 10, percorso);
 }
 
 void draw(){
   background(220);
-  griglia.disegnaGriglia();
+  griglia.draw();
   nemico.draw();
 }
 

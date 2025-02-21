@@ -11,9 +11,17 @@ abstract class Nemico{
         this.danno = danno;
         this.velocita = velocita;
         this.percorso = percorso;
+        this.x = percorso.punti.get(0).getX();
+        this.y = percorso.punti.get(0).getY();
     }
 
     void muovi(){
+        if(posizione < percorso.getFine()){
+            posizione++;
+            Punto pSuccessivo = percorso.punti.get(posizione);
+            x = pSuccessivo.getX();
+            y = pSuccessivo.getY();
+        }
     }
 
     public abstract void draw();
