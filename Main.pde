@@ -16,6 +16,7 @@ void draw(){
   background(220);
   griglia.draw();
   nemico.draw();
+  nemico.muovi();
 }
 
 void mousePressed(){

@@ -2,6 +2,7 @@ abstract class Nemico{
     int vita;
     int danno;
     int velocita;
+    float progresso;
     float x, y;
     int posizione = 0;
     Percorso percorso;
@@ -17,10 +18,14 @@ abstract class Nemico{
 
     void muovi(){
         if(posizione < percorso.getFine()){
-            posizione++;
-            Punto pSuccessivo = percorso.punti.get(posizione);
-            x = pSuccessivo.getX();
-            y = pSuccessivo.getY();
+            progresso += velocita * 0.01;
+            if (progresso >= 1.0) {
+                progresso = 0;
+                posizione++;
+                Punto pSucessivo = percorso.punti.get(posizione);
+                x = pSucessivo.x;
+                y = pSucessivo.y;
+            }
         }
     }
 
