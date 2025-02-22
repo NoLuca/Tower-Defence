@@ -3,6 +3,8 @@ Percorso percorso;
 int cellSize = 40; // Dimensione delle celle
 int larghezza = 20, altezza = 20; // Dimensioni della griglia
 NemicoVeloce nemico;
+Menu menu;
+boolean giocoAttivo = false;
 
 void setup() {
   size(800, 800);
@@ -10,16 +12,38 @@ void setup() {
   percorso = new Percorso(larghezza, altezza);
   griglia.disegnaPercorso(percorso);
   nemico = new NemicoVeloce(10, 10, 10, percorso);
+  menu = new Menu();
 }
 
 void draw(){
-  background(220);
-  griglia.draw();
-  nemico.draw();
-  nemico.muovi();
+  if(!giocoAttivo){
+    menu.draw();
+  }else{
+    background(220);
+    griglia.draw();
+    nemico.draw();
+    nemico.muovi();  
+  }
+}
+
+void drawMenu(){
+  fill(0);
+  textSize(32);
+  textAlign(CENTER, CENTER);
+  text("Premi per iniziare", width / 2, height / 2);
+  fill(100, 200, 100);
+  rect(width / 2 - 75, height / 2 + 50, 150, 50);
+  fill(0);
+  textSize(16);
+  text("Inizia Gioco", width / 2, height / 2 + 75);
 }
 
 void mousePressed(){
+  if(!giocoAttivo && menu.bottoneInizio.isCliccato(mouseX, mouseY)){
+    giocoAttivo = true;
+    return;
+  }
+
   // Calcola le coordinate della cella cliccata
   int gridX = mouseX / cellSize;
   int gridY = mouseY / cellSize;
