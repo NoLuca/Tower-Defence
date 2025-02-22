@@ -1,6 +1,6 @@
 class NemicoVeloce extends Nemico{
-    public NemicoVeloce(int vita, int danno, int velocita, Percorso percorso){
-        super(vita, danno, velocita, percorso);
+    public NemicoVeloce(Percorso percorso){
+        super(10, 5, 3, percorso); // Parametri costanti del nemico veloce
     }
 
     public void draw(){

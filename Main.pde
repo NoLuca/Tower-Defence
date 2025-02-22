@@ -3,6 +3,7 @@ Percorso percorso;
 int cellSize = 40; // Dimensione delle celle
 int larghezza = 20, altezza = 20; // Dimensioni della griglia
 NemicoVeloce nemico;
+NemicoManager nemicoManager;
 Menu menu;
 boolean giocoAttivo = false;
 
@@ -11,7 +12,8 @@ void setup() {
   griglia = new Griglia(larghezza, altezza, cellSize);
   percorso = new Percorso(larghezza, altezza);
   griglia.disegnaPercorso(percorso);
-  nemico = new NemicoVeloce(10, 10, 10, percorso);
+  nemico = new NemicoVeloce(percorso);
+  nemicoManager = new NemicoManager();
   menu = new Menu();
 }
 
@@ -21,8 +23,8 @@ void draw(){
   }else{
     background(220);
     griglia.draw();
-    nemico.draw();
-    nemico.muovi();  
+    nemicoManager.draw();  
+    nemicoManager.aggiorna();
   }
 }
 
@@ -39,8 +41,10 @@ void drawMenu(){
 }
 
 void mousePressed(){
+  // Inizia il gioco
   if(!giocoAttivo && menu.bottoneInizio.isCliccato(mouseX, mouseY)){
     giocoAttivo = true;
+    nemicoManager.generaOndata();
     return;
   }
 
@@ -48,8 +52,8 @@ void mousePressed(){
   int gridX = mouseX / cellSize;
   int gridY = mouseY / cellSize;
 
-  // Posiziona una torre (verde) se possibile
-  if(griglia.posizioneVuota(gridX, gridY)){
+  // Posiziona una torre se possibile
+  if(griglia.posizioneVuota(gridX, gridY) && giocoAttivo){
     griglia.posizionaTorre(gridX, gridY);
   }
 }
