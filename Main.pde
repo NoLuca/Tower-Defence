@@ -20,6 +20,8 @@ void setup() {
 void draw(){
   if(!giocoAttivo){
     menu.draw();
+  }else if(isGameOver()){
+    drawMorte();
   }else{
     background(220);
     griglia.draw();
@@ -29,18 +31,6 @@ void draw(){
   }
 }
 
-void drawVita(){
-  // Sfondo
-  fill(255);
-  noStroke();
-  rect(60, 10, 120, 40);
-
-  // Testo
-  fill(0);
-  textAlign(CENTER, CENTER);
-  textSize(32);
-  text("Vita: " + getVita(), 120, 30);
-}
 
 void mousePressed(){
   // Inizia il gioco
@@ -48,6 +38,10 @@ void mousePressed(){
     giocoAttivo = true;
     nemicoManager.generaOndata();
     return;
+  }
+  // Esci dal gioco
+  if(!giocoAttivo && menu.bottoneEsci.isCliccato(mouseX, mouseY)){
+    exit();
   }
 
   // Calcola le coordinate della cella cliccata
@@ -57,5 +51,13 @@ void mousePressed(){
   // Posiziona una torre se possibile
   if(griglia.posizioneVuota(gridX, gridY) && giocoAttivo){
     griglia.posizionaTorre(gridX, gridY);
+  }
+}
+
+void keyPressed(){
+  if(key == 'r' || key == 'R'){
+    resetVita();
+    giocoAttivo = false;
+    setup();
   }
 }
