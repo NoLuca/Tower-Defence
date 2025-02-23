@@ -16,7 +16,11 @@ class NemicoManager{
             tempoOndata = millis();
         }
 
-        for(Nemico nemico : nemici){
+        for(int i = nemici.size() - 1; i >= 0; i--){
+            Nemico nemico = nemici.get(i);
+            if(nemico.isArrivato()){
+                nemici.remove(i);
+            }
             nemico.muovi();
         }
     }

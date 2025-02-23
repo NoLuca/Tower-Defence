@@ -25,19 +25,21 @@ void draw(){
     griglia.draw();
     nemicoManager.draw();  
     nemicoManager.aggiorna();
+    drawVita();
   }
 }
 
-void drawMenu(){
+void drawVita(){
+  // Sfondo
+  fill(255);
+  noStroke();
+  rect(60, 10, 120, 40);
+
+  // Testo
   fill(0);
-  textSize(32);
   textAlign(CENTER, CENTER);
-  text("Premi per iniziare", width / 2, height / 2);
-  fill(100, 200, 100);
-  rect(width / 2 - 75, height / 2 + 50, 150, 50);
-  fill(0);
-  textSize(16);
-  text("Inizia Gioco", width / 2, height / 2 + 75);
+  textSize(32);
+  text("Vita: " + getVita(), 120, 30);
 }
 
 void mousePressed(){

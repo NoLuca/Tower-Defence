@@ -22,11 +22,22 @@ abstract class Nemico{
             if (progresso >= 1.0) {
                 progresso = 0;
                 posizione++;
+
+                if(posizione >= percorso.getFine()){
+                    prendiDanno(danno);
+                    println(getVita());
+                    return;
+                }
+
                 Punto pSucessivo = percorso.punti.get(posizione);
                 x = pSucessivo.x;
                 y = pSucessivo.y;
             }
         }
+    }
+
+    public boolean isArrivato(){
+        return posizione >= percorso.getFine();
     }
 
     public abstract void draw();
