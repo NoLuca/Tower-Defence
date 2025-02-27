@@ -1,4 +1,4 @@
-class NemicoVeloce extends Nemico{
+class NemicoVeloce extends Nemico {
     public NemicoVeloce(Percorso percorso){
         super(10, 5, 3, percorso); // Parametri costanti del nemico veloce
     }

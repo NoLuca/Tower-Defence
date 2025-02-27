@@ -41,7 +41,7 @@ class Griglia {
 
     // Verifica se una cella è vuota
     boolean posizioneVuota(int x, int y){
-        if (x >= 0 && x < larghezza && y >= 0 && y < altezza){
+        if(x >= 0 && x < larghezza && y >= 0 && y < altezza){
           return celle[x][y] == 0;
         }
         return false;
@@ -49,7 +49,7 @@ class Griglia {
 
     // Imposta una cella come occupata da una torre (2)
     void posizionaTorre(int x, int y){
-        if (posizioneVuota(x, y)){
+        if(posizioneVuota(x, y)){
             celle[x][y] = 2;
         }
     }
@@ -67,6 +67,5 @@ class Griglia {
                 }
             }
         }
-    }
-    
+    }    
 }

@@ -1,4 +1,4 @@
-class NemicoManager{
+class NemicoManager {
     ArrayList<Nemico> nemici;
     int ondataCorrente;
     int tempoOndata;
@@ -8,6 +8,12 @@ class NemicoManager{
         nemici = new ArrayList<Nemico>();
         ondataCorrente = 0;
         tempoOndata = millis();
+    }
+
+    public void draw(){
+        for(Nemico nemico : nemici){
+            nemico.draw();
+        }
     }
 
     public void aggiorna(){
@@ -22,12 +28,6 @@ class NemicoManager{
                 nemici.remove(i);
             }
             nemico.muovi();
-        }
-    }
-
-    public void draw(){
-        for(Nemico nemico : nemici){
-            nemico.draw();
         }
     }
 

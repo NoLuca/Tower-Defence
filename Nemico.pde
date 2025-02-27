@@ -1,4 +1,4 @@
-abstract class Nemico{
+abstract class Nemico {
     int vita;
     int danno;
     int velocita;
@@ -19,7 +19,7 @@ abstract class Nemico{
     void muovi(){
         if(posizione < percorso.getFine()){
             progresso += velocita * 0.01;
-            if (progresso >= 1.0) {
+            if(progresso >= 1.0){
                 progresso = 0;
                 posizione++;
 

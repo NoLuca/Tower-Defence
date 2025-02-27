@@ -33,8 +33,8 @@ void drawVita(){
     text("Vita: " + getVita(), 120, 30);
 }
 
-void drawMorte(){
-    int larghezzaRettangolo = 300;
+void drawGameOver(){
+    int larghezzaRettangolo = 330;
     int altezzaRettangolo = 150;
     int xRettangolo = (width - larghezzaRettangolo) / 2;
     int yRettangolo = (height - altezzaRettangolo) / 2;

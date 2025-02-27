@@ -1,10 +1,10 @@
 Griglia griglia;
 Percorso percorso;
-int cellSize = 40; // Dimensione delle celle
-int larghezza = 20, altezza = 20; // Dimensioni della griglia
 NemicoVeloce nemico;
 NemicoManager nemicoManager;
 Menu menu;
+int cellSize = 40; // Dimensione delle celle
+int larghezza = 20, altezza = 20; // Dimensioni della griglia
 boolean giocoAttivo = false;
 
 void setup() {
@@ -21,7 +21,7 @@ void draw(){
   if(!giocoAttivo){
     menu.draw();
   }else if(isGameOver()){
-    drawMorte();
+    drawGameOver();
   }else{
     background(220);
     griglia.draw();
